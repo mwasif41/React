@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text area Component Stateless</title>
+</head>
+<body>
+   <h3>This will tell you the number of characters in text area</h3>
+    <div id="app">
+
+    </div>
+    <script src="react.min.js"></script>
+<script src="react-dom.min.js"></script>
+<script>
+   var textareaComp = React.createClass({
+        propTypes: {
+            text : React.PropTypes.string,
+        },
+        getDefaultProps: function(){
+            return {text: '',};
+        },
+        render: function(){
+            return React.DOM.div(null,
+            React.DOM.textarea({
+                defaultValue: this.props.text,
+            }),
+            React.DOM.h3(null,this.props.text.length)
+            );
+        }
+    });
+    ///////////////// rendering this comp//////////////////////
+    ReactDOM.render(
+        React.createElement(textareaComp, {
+        text: "Muhammad Wasif.",
+        }),
+        document.getElementById("app")
+    );
+</script>
+</body>
+</html>

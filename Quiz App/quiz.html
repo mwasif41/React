@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quiz app</title>
+</head>
+<body>
+    <h1> Quiz App</h1>
+<div id="app">
+</div>
+     <script src="react.min.js"></script>
+<script src="react-dom.min.js"></script>
+<script src="app.js"></script>
+<script>
+    var quizPannel = React.createClass({
+_rendercreatequiz: function(){
+    //perform signup
+   /* 
+ReactDOM.render(
+
+  React.createElement(quizForm),
+document.getElementById("app")
+    
+);*/
+
+
+},
+_rendergivequiz: function(){
+    // perfrom signin
+/*    
+ReactDOM.render(
+
+  React.createElement(quiztask),
+document.getElementById("app")
+    
+);*/
+},
+render: function() {
+return React.DOM.div(null, 
+  [  React.DOM.button({onClick: this._rendercreatequiz},"Create Quiz"),
+   React.DOM.button({onClick: this._rendergivequiz},"Give Quiz")
+  ]
+);
+}
+});
+
+ReactDOM.render(
+React.createElement(quizPannel),
+document.getElementById("app")
+        );
+
+</script>
+</body>
+</html>

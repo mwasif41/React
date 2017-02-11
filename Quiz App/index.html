@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+</head>
+<body>
+    <h1> Quiz App</h1>
+<div id="app">
+</div>
+ <script src="react.min.js"></script>
+<script src="react-dom.min.js"></script>
+<script src="app.js"></script>
+<script>
+    
+    function person(name,pass,email){
+        this.name = name;
+        this.pass= pass;
+        this.email = email
+
+    };
+var signupForm = React.createClass({
+   getInitialState: function() {
+    return {
+        username: 'null',
+        password: 'null',
+        email: 'null'
+        };
+    },
+   
+    propTypes: {
+    name: React.PropTypes.string.isRequired,
+    pass: React.PropTypes.string.isRequired,
+    },
+    
+    _submit: function(){
+       var signup = new person(this.state.username,this.state.password,this.state.email);
+       data.push(signup);
+       alert("thanks for signing up !");
+        ReactDOM.render(
+React.createElement(title),
+document.getElementById("app")
+);
+           //location.reload();
+    },
+    _textChange1: function(e){
+        this.setState({
+        username: e.target.value,
+        });
+    }
+    ,_textChange2: function(e){
+        this.setState({
+        password: e.target.value,
+        });
+    }
+    ,_textChange3: function(e){
+        this.setState({
+        email: e.target.value,
+        });
+    }
+    ,
+    render: function(){
+        return React.DOM.form(null,[
+        React.DOM.label(null,"USERNAME :"),     
+        React.DOM.input({type:'text',
+                         name: 'uname',
+                         onChange: this._textChange1,
+                        placeholder: "type user name .."   }),
+        React.DOM.label(null,"PASSWORD :"),     
+        React.DOM.input({type:'text',
+                         onChange: this._textChange2,
+                        name: 'pass',
+                    placeholder: "type password .."}),
+        React.DOM.label(null,"E-MAIL :"),     
+        React.DOM.input({type:'email',
+                        name: 'email',
+                         onChange: this._textChange3,
+                    placeholder: "type your email .."}),
+        React.DOM.input({type:'submit',
+                    onClick: this._submit,
+                        name: 'signup',
+                    value: " SIGN UP "}),
+        ]
+        );
+
+    }
+});
+
+var signinForm = React.createClass({
+   getInitialState: function() {
+    return {
+        username: 'null',
+        password: 'null',
+        };
+    },
+   _textChange1: function(e){
+        this.setState({
+        username: e.target.value,
+        });
+    }
+    ,_textChange2: function(e){
+        this.setState({
+        password: e.target.value,
+        });
+    }
+    ,
+    propTypes: {
+    name: React.PropTypes.string.isRequired,
+    pass: React.PropTypes.string.isRequired,
+    },
+    _submit: function(){
+        var count=false;
+    for(var i=0;i<data.length;i++){
+        if(data[i].name===this.state.username && data[i].pass ===this.state.password)
+        {   count=true;
+            alert(" welcome " + data[i].name);
+        }
+    }
+    if(!count)
+    alert("wrong please try again");
+    else{
+        }   
+     },
+    render: function(){
+        return React.DOM.form(null,[
+        React.DOM.label(null,"USERNAME :"),     
+        React.DOM.input({type:'text',
+                         onChange: this._textChange1,
+                         name: 'uname',
+                        placeholder: "type user name .."   }),
+        React.DOM.label(null,"PASSWORD :"),     
+        React.DOM.input({type:'password',
+                         onChange: this._textChange2,
+                        name: 'pass',
+                    placeholder: "type password .."}),
+        React.DOM.input({type:'submit',
+                    onClick: this._submit,
+                        name: 'signip',
+                    value: " SIGN IN "}),
+        ]
+        );
+
+    }
+});
+
+
+var title = React.createClass({
+_rendersignup: function(){
+    //perform signup
+    
+ReactDOM.render(
+
+  React.createElement(signupForm),
+document.getElementById("app")
+    
+);
+
+
+},
+_signin: function(){
+    // perfrom signin
+    
+ReactDOM.render(
+
+  React.createElement(signinForm),
+document.getElementById("app")
+    
+);
+},
+render: function() {
+return React.DOM.div(null, 
+  [  React.DOM.button({onClick: this._rendersignup},"Sign up"),
+   React.DOM.button({onClick: this._signin},"Sign in")
+  ]
+);
+}
+});
+////////////// create quiz and perform quiz///////////////
+var quizPannel = React.createClass({
+_rendercreatequiz: function(){
+    //perform signup
+   /* 
+ReactDOM.render(
+
+  React.createElement(quizForm),
+document.getElementById("app")
+    
+);*/
+
+
+},
+_rendergivequiz: function(){
+    // perfrom signin
+/*    
+ReactDOM.render(
+
+  React.createElement(quiztask),
+document.getElementById("app")
+    
+);*/
+},
+render: function() {
+return React.DOM.div(null, 
+  [  React.DOM.button({onClick: this._rendercreatequiz},"Create Quiz"),
+   React.DOM.button({onClick: this._rendergivequiz},"Give Quiz")
+  ]
+);
+}
+});
+
+
+
+ReactDOM.render(
+React.createElement(title),
+document.getElementById("app")
+);
+</script>
+</body>
+</html>

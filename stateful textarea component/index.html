@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statefyul textarea component</title>
+</head>
+<body>
+       <h3>This will tell you the number of characters in text area</h3>
+    <div id="app">
+
+    </div>
+    <script src="react.min.js"></script>
+<script src="react-dom.min.js"></script>
+<script>
+   var textareaComp = React.createClass({
+        propTypes: {
+            text : React.PropTypes.string,
+        },
+       
+        getInitialState: function(){
+            return {text: this.props.text,};
+        },
+        _textChange: function(ev){
+            this.setState({
+                text: ev.target.value,
+            });
+        },
+
+        render: function(){
+            return React.DOM.div(null,
+            React.DOM.textarea({
+                value: this.state.text,
+                onChange: this._textChange,
+            }),
+            React.DOM.h3(null,this.state.text.length)
+            );
+        }
+    });
+    ///////////////// rendering this comp//////////////////////
+    ReactDOM.render(
+        React.createElement(textareaComp, {
+        text: "Muhammad Wasif",
+        }),
+        document.getElementById("app")
+    );
+</script>
+</body>
+</html>

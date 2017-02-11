@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myapp">
+<!----- my code would appear here :p ----->
+    </div>
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    <script>
+  /*
+  ReactDOM.render(
+React.DOM.h1(null, "Hello World!"),
+document.getElementById("app")
+);  
+   */
+        ReactDOM.render(
+            React.DOM.h1(
+                {
+                   style:{ fontSize : "40px",
+                    fontFamily : "Verdana",
+                    color : "blue",}
+                }
+                ,"Hello world :p"),
+            document.getElementById("myapp")
+        );
+    </script>
+</body>
+</html>
